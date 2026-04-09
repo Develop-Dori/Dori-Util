@@ -15,6 +15,7 @@ Core/
 ├── DCore.cs              # 정적 서비스 레지스트리 (진입점)
 ├── IDModuleBase.cs       # 모듈 인터페이스
 ├── DCore_Object.cs       # MonoBehaviour 라이프사이클 콜백 래퍼
+├── DSingleton.cs         # MonoBehaviour 싱글톤 베이스 클래스
 ├── Module/
 │   ├── MD_Error.cs       # 에러 코드 관리
 │   ├── MD_Pool.cs        # GameObject 오브젝트 풀링
@@ -22,7 +23,8 @@ Core/
 │   ├── MD_Sound.cs       # 사운드 재생 (BGM/FX, 풀링)
 │   ├── MD_Timer.cs       # 이름 기반 타이머 시스템
 │   ├── MD_WebNetwork.cs  # HTTP GET/POST 요청
-│   └── MD_IdleReturn.cs  # Idle 감지 → 첫 화면 복귀 이벤트
+│   ├── MD_IdleReturn.cs  # Idle 감지 → 첫 화면 복귀 이벤트
+│   └── MD_Setting.cs     # JSON 파일 기반 설정 관리
 └── SO/
     └── SOD_Sound.cs      # 사운드 에셋 ScriptableObject
 ```
@@ -110,6 +112,54 @@ idle.Activate();   // 감지 시작
 // idle.Deactivate(); // 감지 중단
 // idle.ReportActivity(); // 외부에서 수동으로 활동 보고 (같은 프레임 중복 호출 자동 방지)
 ```
+
+#### MD_Setting (설정 관리)
+```csharp
+var setting = DCore.GetModule<MD_Setting>();
+
+// 기본 제공 필드
+bool debug = setting.DebugMode;
+float timeout = setting.Timeout;
+
+// 값 변경 후 저장
+setting.Settings.debugMode = true;
+setting.ApplyAndSave();
+
+// 변경 이벤트 구독
+setting.OnSettingsChanged += () => Debug.Log("설정 변경됨");
+
+// 프로젝트별 커스텀 설정 클래스로 로드
+// [Serializable] public class MySettings { public string serverUrl = ""; }
+var custom = setting.LoadAs<MySettings>();
+```
+
+> 설정 파일 위치: 빌드 시 exe 옆 `settings.json`, 에디터에서는 프로젝트 루트 `settings.json`
+
+---
+
+## DSingleton\<T\>
+
+MonoBehaviour 기반 제네릭 싱글톤 베이스 클래스입니다.  
+`DCore` 모듈 시스템 외부에서 MonoBehaviour 싱글톤이 필요할 때 사용합니다.
+
+```csharp
+public class MyManager : DSingleton<MyManager>
+{
+    protected override void Awake()
+    {
+        base.Awake();
+        // DontDestroyOnLoad이 필요하면 여기에 추가
+        // DontDestroyOnLoad(gameObject);
+    }
+}
+
+// 접근:
+MyManager.Instance.SomeMethod();
+```
+
+- 씬에 없으면 자동 생성 (`FindAnyObjectByType` → `new GameObject`)
+- 중복 인스턴스 자동 파괴
+- `OnApplicationQuit` 시 null 반환으로 파괴 순서 문제 방지
 
 ---
 

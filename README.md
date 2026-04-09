@@ -65,6 +65,7 @@ Dori Util/
 │   ├── DCore.cs              정적 서비스 레지스트리 (진입점)
 │   ├── IDModuleBase.cs       모듈 인터페이스
 │   ├── DCore_Object.cs       MonoBehaviour 라이프사이클 콜백 래퍼
+│   ├── DSingleton.cs         MonoBehaviour 싱글톤 베이스 클래스
 │   ├── Module/
 │   │   ├── MD_Timer.cs       이름 기반 타이머
 │   │   ├── MD_Sound.cs       사운드 재생 (BGM/FX, 풀링)
@@ -72,7 +73,8 @@ Dori Util/
 │   │   ├── MD_Resource.cs    Resources 로드 유틸
 │   │   ├── MD_Error.cs       에러 코드 관리
 │   │   ├── MD_WebNetwork.cs  HTTP GET/POST 요청
-│   │   └── MD_IdleReturn.cs  Idle 감지 → 첫 화면 복귀 이벤트
+│   │   ├── MD_IdleReturn.cs  Idle 감지 → 첫 화면 복귀 이벤트
+│   │   └── MD_Setting.cs     JSON 파일 기반 설정 관리
 │   └── SO/
 │       └── SOD_Sound.cs      사운드 에셋 ScriptableObject
 │

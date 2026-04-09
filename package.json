@@ -1,7 +1,7 @@
 {
   "name": "com.dori.util",
   "displayName": "Dori Util",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "unity": "2021.3",
   "description": "Unity 유틸리티 프레임워크. Core(모듈 기반 통합 시스템)와 Toolkit(독립 컴포넌트 모음)으로 구성.",
   "author": {
