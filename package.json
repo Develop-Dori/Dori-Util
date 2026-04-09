@@ -1,0 +1,33 @@
+{
+  "name": "com.dori.util",
+  "displayName": "Dori Util",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "description": "Unity 유틸리티 프레임워크. Core(모듈 기반 통합 시스템)와 Toolkit(독립 컴포넌트 모음)으로 구성.",
+  "author": {
+    "name": "Dori"
+  },
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.inputsystem": "1.4.4"
+  },
+  "keywords": [
+    "utility",
+    "framework",
+    "ui",
+    "animation",
+    "timer"
+  ],
+  "samples": [
+    {
+      "displayName": "Touch System Prefab",
+      "description": "Touch System 기본 프리팹 (에셋은 별도 준비 필요)",
+      "path": "Samples~/Touch System"
+    },
+    {
+      "displayName": "UI Timer System Prefab",
+      "description": "UI Timer System 기본 프리팹 (에셋은 별도 준비 필요)",
+      "path": "Samples~/UI Timer System"
+    }
+  ]
+}

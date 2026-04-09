@@ -1,0 +1,14 @@
+{
+  "name": "com.dori.toolkit",
+  "displayName": "Dori Toolkit",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "description": "독립 컴포넌트 모음. Custom Dotween System, Touch System, UI Timer System, ChildFirstLayoutGroup, 에디터 도구를 제공합니다.",
+  "author": {
+    "name": "Dori"
+  },
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.inputsystem": "1.4.4"
+  }
+}

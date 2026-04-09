@@ -1,0 +1,10 @@
+{
+  "name": "com.dori.core",
+  "displayName": "Dori Core",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "description": "모듈 기반 통합 프레임워크. 서비스 로케이터 패턴으로 Timer, Sound, Pool, Resource, Error, WebNetwork, IdleReturn 모듈을 제공합니다.",
+  "author": {
+    "name": "Dori"
+  }
+}

@@ -1,0 +1,32 @@
+# ===========================================
+# Dori Util - Git Ignore
+# ===========================================
+# 유료/저작권 에셋 바이너리는 제외하되,
+# .meta 파일은 커밋하여 GUID 참조를 보존합니다.
+# → 에셋 파일을 같은 경로에 넣으면 프리팹이 자동 연결됩니다.
+# ===========================================
+
+# ── 유료 에셋 (바이너리만 제외, .meta는 커밋) ──
+
+# 사운드
+Dori Toolkit/Touch System/Default Resources/*.wav
+Dori Toolkit/Touch System/Default Resources/*.mp3
+Dori Toolkit/UI Timer System/Default Resources/*.wav
+Dori Toolkit/UI Timer System/Default Resources/*.mp3
+
+# 폰트
+Dori Toolkit/UI Timer System/Default Resources/*.otf
+Dori Toolkit/UI Timer System/Default Resources/*.ttf
+
+# 폰트 SDF 에셋
+Dori Toolkit/UI Timer System/Default Resources/*.asset
+
+# 파티클 텍스처
+Dori Toolkit/Touch System/Default Resources/Particle/*.png
+
+# 파티클 머티리얼
+Dori Toolkit/Touch System/Default Resources/Particle/*.mat
+
+# ── Unity 자동 생성 ──
+*.DS_Store
+Thumbs.db
